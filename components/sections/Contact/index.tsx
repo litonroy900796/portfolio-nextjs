@@ -4,7 +4,7 @@ import { ContactForm, ContactInfo, SectionTitle } from "../../elements";
 function Contact() {
   const { title, subtitle, typeWriter, email } = CONTACT;
   return (
-    <section name="Contact" className="element">
+    <section id="Contact" className="element">
       <div className="container">
         {/* ==== Section Title ==== */}
         <SectionTitle

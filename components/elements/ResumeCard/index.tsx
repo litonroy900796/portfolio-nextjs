@@ -1,6 +1,17 @@
+import { IconType } from "react-icons";
 import "./style.css"
 
-function ResumeCard({ title, year, subtitle, description, Icon, education, experience }) {
+interface ResumeCardProps {
+  title: string;
+  year: string;
+  subtitle: string;
+  description: string;
+  Icon: IconType;
+  education?: boolean;
+  experience?: boolean;
+}
+
+function ResumeCard({ title, year, subtitle, description, Icon, education, experience }: ResumeCardProps) {
     return (
         <div className="flex gap-4 mt-12 relative w-full ResumeCard">
             <div className="relative text-2xl mt-6 text-[#545454] ResumeCard__icon">

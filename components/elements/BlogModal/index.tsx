@@ -3,6 +3,16 @@ import { BiTimeFive } from "react-icons/bi";
 import { MdWeb } from "react-icons/md";
 import { FaUserAlt } from "react-icons/fa";
 
+interface BlogModalProps {
+  title: string;
+  published_at: string;
+  image: string;
+  category: string;
+  author: string;
+  content: string;
+  onClose?: () => void;
+}
+
 function BlogModal({
   title,
   published_at,
@@ -11,7 +21,7 @@ function BlogModal({
   author,
   content,
   onClose,
-}) {
+}: BlogModalProps) {
   return (
     <div className="w-full h-full bg-black rounded-md px-3 py-8 shadow-sm shadow-[#3f3e3eaa]">
       {/* ==== Close Modal ==== */}

@@ -16,8 +16,8 @@ function Header() {
 
   useEffect(() => {
     // add event listener for scroll (react-scroll)
-    Events.scrollEvent.register("begin");
-    Events.scrollEvent.register("end");
+    Events.scrollEvent.register("begin", () => {});
+    Events.scrollEvent.register("end", () => {});
     scrollSpy.update();
     window.addEventListener("scroll", nav);
 

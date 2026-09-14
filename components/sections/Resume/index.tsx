@@ -6,7 +6,7 @@ function Resume() {
   const { title, subtitle, typeWriter, education, experience, skills } = RESUME;
 
   return (
-    <section name="Resume" className="element">
+    <section id="Resume" className="element">
       <div className="container">
         {/* ==== Section Title ==== */}
         <SectionTitle

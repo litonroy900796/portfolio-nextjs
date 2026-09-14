@@ -1,6 +1,14 @@
 import { TypeWriter } from "../"
 
-function SectionTitle({ title, subtitle, typeWriter, center = false, className }) {
+interface SectionTitleProps {
+  title: string;
+  subtitle: string;
+  typeWriter: string[];
+  center?: boolean;
+  className?: string;
+}
+
+function SectionTitle({ title, subtitle, typeWriter, center = false, className = "" }: SectionTitleProps) {
     return (
         <div className={`${className} ${center && 'text-center'} mb-6`}>
             <p className="font-normal text-[#EBEBEB]">

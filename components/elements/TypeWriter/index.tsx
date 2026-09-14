@@ -3,8 +3,13 @@
 import { useEffect, useRef } from "react";
 import Typewriter from "typewriter-effect/dist/core";
 
-function TypeWriter ({ title, className }) {
-  const textRef = useRef();
+interface TypeWriterProps {
+  title: string | string[];
+  className?: string;
+}
+
+function TypeWriter ({ title, className }: TypeWriterProps) {
+  const textRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     // Typewriter instance

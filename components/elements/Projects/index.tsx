@@ -3,9 +3,28 @@
 import { useCallback, useEffect, useState } from "react";
 import { PortfolioCard, PortfolioModal, PopUpWrapper } from "../";
 
-function Projects({ projects, type }) {
+interface Project {
+  title: string;
+  description: string;
+  video: string;
+  images: {
+    default: string;
+    variants: string[];
+  };
+  link: string;
+  type: string;
+  tags: string[];
+  source?: string;
+}
+
+interface ProjectsProps {
+  projects: Project[];
+  type: string;
+}
+
+function Projects({ projects, type }: ProjectsProps) {
   const [filteredProjects, setFilteredProjects] = useState(projects);
-  const [popupData, setPopupData] = useState(null);
+  const [popupData, setPopupData] = useState<Project | null>(null);
   const [open, setOpen] = useState(false);
 
   const filter = useCallback(() => {
@@ -27,18 +46,17 @@ function Projects({ projects, type }) {
   return (
     <>
       <div className="flex flex-wrap justify-center gap-x-6 max-w-5xl mx-auto">
-        {filteredProjects.map((project, index) => (
+        {filteredProjects.map((project: Project, index: number) => (
           <PortfolioCard
             key={index}
             {...project}
-            project={project}
             onClick={() => setPopupData(project)}
           />
         ))}
       </div>
       {/* ==== Project Modal ==== */}
       <PopUpWrapper open={open} nested onClose={closeModal}>
-        <PortfolioModal onClose={closeModal} popupData={popupData} />
+        <PortfolioModal onClose={closeModal} popupData={popupData ?? undefined} />
       </PopUpWrapper>
     </>
   );

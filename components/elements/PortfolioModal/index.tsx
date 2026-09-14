@@ -9,15 +9,34 @@ import {
 } from "react-icons/ai";
 import { ProjectDetails, VideoPlayer, ScrollableImage, PopUpWrapper } from "../";
 
-const PortfolioModal = ({ onClose, popupData }) => {
+interface PortfolioModalData {
+  title?: string;
+  description?: string;
+  type?: string;
+  tags?: string[];
+  link?: string;
+  source?: string;
+  video?: string;
+  images?: {
+    default: string;
+    variants: string[];
+  };
+}
+
+interface PortfolioModalProps {
+  onClose?: () => void;
+  popupData?: PortfolioModalData;
+}
+
+const PortfolioModal = ({ onClose, popupData }: PortfolioModalProps) => {
   const [open, setOpen] = useState(false);
-  const [openImage, setOpenImage] = useState(null);
+  const [openImage, setOpenImage] = useState<string | null>(null);
 
   const { title, description, type, tags, link, source, video, images } = popupData || {}
 
   const onClosePopup = () => setOpen(false);
-  const imageModalClick = (dataImg) => {
-    setOpenImage(dataImg);
+  const imageModalClick = (dataImg?: string) => {
+    setOpenImage(dataImg ?? null);
     setOpen(true);
   };
 
@@ -76,7 +95,7 @@ const PortfolioModal = ({ onClose, popupData }) => {
           </div>
           {/* ==== Project Images ==== */}
           <div className="flex flex-wrap gap-5 justify-between mt-10">
-            {popupData?.images?.variants?.map((image, index) => (
+            {popupData?.images?.variants?.map((image: string, index: number) => (
               <div
                 className="w-full sm:w-[48%] h-[170px] overflow-y-scroll no-scrollbar"
                 key={index}
@@ -92,7 +111,7 @@ const PortfolioModal = ({ onClose, popupData }) => {
       </div>
       {/* ==== Image Modal === */}
       <PopUpWrapper open={open} onClose={onClosePopup}>
-        <img src={openImage} alt="project" className="w-full object-cover " />
+        <img src={openImage ?? undefined} alt="project" className="w-full object-cover " />
       </PopUpWrapper>
     </>
   );

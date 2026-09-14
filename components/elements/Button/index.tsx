@@ -1,4 +1,12 @@
-function Button({ children, className, ...rest }) {
+import { AnchorHTMLAttributes, ReactNode } from "react";
+
+interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  children: ReactNode;
+  className?: string;
+  type?: string;
+}
+
+function Button({ children, className = "", ...rest }: ButtonProps) {
   return (
     <a
       className={` 

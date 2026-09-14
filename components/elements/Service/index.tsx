@@ -1,4 +1,12 @@
-function Service({ icon, title, text }) {
+import { ReactNode } from "react";
+
+interface ServiceProps {
+  icon: ReactNode;
+  title: string;
+  text: string;
+}
+
+function Service({ icon, title, text }: ServiceProps) {
   return (
     <div className="flex flex-col items-center justify-center gap-6 mt-12 w-1/2 lg:flex-row lg:justify-start lg:items-start lg:w-[45%]">
       <div className="text-white">{icon}</div>

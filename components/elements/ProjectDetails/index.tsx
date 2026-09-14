@@ -1,4 +1,12 @@
-function ProjectDetails({ icon, text, link }) {
+import { ReactNode } from "react";
+
+interface ProjectDetailsProps {
+  icon: ReactNode;
+  text: ReactNode;
+  link?: string;
+}
+
+function ProjectDetails({ icon, text, link }: ProjectDetailsProps) {
     return (
         <a
             href={link}

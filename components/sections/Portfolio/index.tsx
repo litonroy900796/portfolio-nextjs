@@ -10,7 +10,7 @@ function Portfolio() {
   const { title, subtitle, typeWriter, types, projects, github } = PORTFOLIO;
 
   return (
-    <section name="Portfolio" className="element">
+    <section id="Portfolio" className="element">
       <div className="container">
         {/* ==== Section Title ==== */}
         <SectionTitle

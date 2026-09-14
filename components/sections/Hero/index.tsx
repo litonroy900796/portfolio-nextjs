@@ -5,7 +5,7 @@ import { Button, TypeWriter, HeroBottom } from "../../elements";
 function Hero() {
     const { name, title, subtitle, typeWriter, button, bgImage } = HERO
     return (
-        <section className="relative h-screen flex" name="Hero">
+        <section className="relative h-screen flex" id="Hero">
             {/* ==== Hero Background Image ==== */}
             <img
                 src={bgImage}

@@ -1,3 +1,12 @@
+interface BlogCardProps {
+  title: string;
+  image: string;
+  published_at: string;
+  author: string;
+  category: string;
+  onClick?: () => void;
+}
+
 function BlogCard({
   title,
   image,
@@ -5,7 +14,7 @@ function BlogCard({
   author,
   category,
   onClick,
-}) {
+}: BlogCardProps) {
   return (
     <div className="w-full mb-8 cursor-pointer" onClick={onClick}>
       <div className="relative w-full">

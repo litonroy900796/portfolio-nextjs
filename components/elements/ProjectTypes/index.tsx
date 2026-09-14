@@ -1,8 +1,13 @@
+interface ProjectTypesProps {
+  types: string[];
+  selected: string;
+  onChange: (type: string) => void;
+}
 
-function ProjectTypes({ types, selected, onChange }) {
+function ProjectTypes({ types, selected, onChange }: ProjectTypesProps) {
     return (
         <div className="flex flex-wrap justify-center space-x-3 sm:space-x-5 my-10">
-            {types.map((type, index) => (
+            {types.map((type: string, index: number) => (
                 <button
                     key={index}
                     className={`

@@ -1,5 +1,9 @@
+interface ScrollableImageProps {
+  src?: string;
+  onClick?: () => void;
+}
 
-function ScrollableImage({ src, onClick }) {
+function ScrollableImage({ src, onClick }: ScrollableImageProps) {
     return (
         <div
             style={{

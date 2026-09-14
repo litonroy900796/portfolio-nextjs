@@ -1,5 +1,12 @@
+interface ContactInfoProps {
+  email: string;
+  phone: string;
+  location: string;
+  country: string;
+  text: string;
+}
 
-function ContactInfo({ email, phone, location, country, text }) {
+function ContactInfo({ email, phone, location, country, text }: ContactInfoProps) {
     return (
         <div className="flex flex-col w-full md:w-[48%] my-8">
             <p className="w-5/6 text-[#696969]">{text}</p>

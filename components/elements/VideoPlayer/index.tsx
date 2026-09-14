@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 
-function VideoPlayer({ src }) {
+interface VideoPlayerProps {
+  src: string;
+}
+
+function VideoPlayer({ src }: VideoPlayerProps) {
     const [videoSrc, setVideoSrc] = useState(src);
     const [embedVideo, setEmbedVideo] = useState(false);
 

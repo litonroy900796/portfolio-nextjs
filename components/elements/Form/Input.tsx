@@ -1,5 +1,10 @@
+import { InputHTMLAttributes } from "react";
 
-function Input({ className, ...rest }) {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  className?: string;
+}
+
+function Input({ className = "", ...rest }: InputProps) {
     return (
         <input
             type="text"

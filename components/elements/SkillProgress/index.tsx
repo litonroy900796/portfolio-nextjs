@@ -1,5 +1,9 @@
+interface SkillProgressProps {
+  name: string;
+  parentage: number;
+}
 
-function SkillProgress({ name, parentage }) {
+function SkillProgress({ name, parentage }: SkillProgressProps) {
   return (
     <div className="flex flex-col w-full sm:w-[48%] md:w-[30%] mb-6">
       <div className="flex gap-10 justify-between items-center">

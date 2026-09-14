@@ -1,10 +1,11 @@
+import { ReactNode } from "react";
 import { ABOUT } from "../../../data";
 import { SectionTitle, Service } from "../../elements";
 
 function About() {
   const { title, description, name, image, exports, services } = ABOUT;
   return (
-    <section name="About" className="element">
+    <section id="About" className="element">
       <div className="container">
         <div className="flex gap-10">
           {/* ==== About Content ==== */}
@@ -21,7 +22,7 @@ function About() {
             </p>
             {/* ==== Services ==== */}
             <div className="flex flex-wrap justify-between">
-              {services.map((service, index) => (
+              {services.map((service: { icon: ReactNode; title: string; text: string }, index: number) => (
                 <Service key={index} {...service} />
               ))}
             </div>
