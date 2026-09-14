@@ -12,4 +12,8 @@ export const HERO = {
     text: "Download CV",
     url: "/LitonRoyResume.pdf",
   },
+  secondaryButton: {
+    text: "Let's Talk",
+    to: "Contact",
+  },
 };

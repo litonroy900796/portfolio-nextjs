@@ -1,7 +1,7 @@
 export const HEADER = {
   logo: {
-    src: null,
-    alt: "Liton R.",
+    src: "/logo.png",
+    alt: "Liton Roy",
   },
   menus: [
     {

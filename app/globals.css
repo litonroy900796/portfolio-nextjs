@@ -84,6 +84,73 @@ body {
   @apply bg-black;
 }
 
+/* Hero section animations */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-blob {
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.2) translate(20px, -15px);
+    opacity: 0.85;
+  }
+}
+
+@keyframes hero-scroll-dot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+@layer components {
+  .animate-hero-fade-up {
+    opacity: 0;
+    animation: hero-fade-up 0.8s ease-out forwards;
+  }
+
+  .animate-hero-fade-in {
+    opacity: 0;
+    animation: hero-fade-in 1s ease-out forwards;
+  }
+
+  .animate-hero-blob {
+    animation: hero-blob 9s ease-in-out infinite;
+  }
+
+  .animate-hero-scroll-dot {
+    animation: hero-scroll-dot 1.8s ease-in-out infinite;
+  }
+}
+
 /* PopUp box hover */
 .project-box {
   display: block;
