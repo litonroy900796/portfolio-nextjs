@@ -50,9 +50,9 @@ const PortfolioModal = ({ onClose, popupData }: PortfolioModalProps) => {
         {/* ==== Project Details ==== */}
         <div className="w-full max-h-[698px] h-[90vh] p-7 overflow-y-scroll no-scrollbar">
           <div className="">
-            <h1 className="text-lg md:text-3xl text-white font-Montserrat font-semibold">
+            <h2 className="text-lg md:text-3xl text-white font-Montserrat font-semibold">
               {title}
-            </h1>
+            </h2>
             <p className="text-[#696969] text-[15px] font-[Poppins] mt-5">
               {description}
             </p>

@@ -30,9 +30,9 @@ function BlogModal({
       </button>
       <div className="w-full max-h-[698px] h-[90vh]  overflow-y-scroll no-scrollbar text-white px-4">
         {/* ==== Blog Title ==== */}
-        <h1 className="text-2xl font-medium py-2 mt-4 font-Montserrat">
+        <h2 className="text-2xl font-medium py-2 mt-4 font-Montserrat">
           {title}
-        </h1>
+        </h2>
         {/* ==== Blog Metadata ==== */}
         <div className="flex gap-3 items-center flex-wrap mb-4">
           <div className="flex gap-2 items-center">

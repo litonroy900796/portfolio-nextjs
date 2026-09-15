@@ -18,9 +18,9 @@ function SectionTitle({ title, subtitle, typeWriter, center = false, className =
                     title={typeWriter}
                 />
             </p>
-            <h1 className={`title text-4xl md:text-5xl ${center ? 'text-center': 'lg:text-left'} font-semibold`}>
+            <h2 className={`title text-4xl md:text-5xl ${center ? 'text-center': 'lg:text-left'} font-semibold`}>
                 {title}
-            </h1>
+            </h2>
         </div>
     )
 }
