@@ -133,13 +133,11 @@ body {
 
 @layer components {
   .animate-hero-fade-up {
-    opacity: 0;
-    animation: hero-fade-up 0.8s ease-out forwards;
+    animation: hero-fade-up 0.8s ease-out both;
   }
 
   .animate-hero-fade-in {
-    opacity: 0;
-    animation: hero-fade-in 1s ease-out forwards;
+    animation: hero-fade-in 1s ease-out both;
   }
 
   .animate-hero-blob {
@@ -148,6 +146,16 @@ body {
 
   .animate-hero-scroll-dot {
     animation: hero-scroll-dot 1.8s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-fade-up,
+  .animate-hero-fade-in,
+  .animate-hero-blob,
+  .animate-hero-scroll-dot {
+    animation: none;
+    opacity: 1;
   }
 }
 
