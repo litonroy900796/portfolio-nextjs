@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 import { MdWeb } from "react-icons/md";
@@ -49,12 +50,15 @@ function BlogModal({
           </div>
         </div>
         {/* ==== Blog Thumbnail ==== */}
-        <img
-          src={image}
-          loading="lazy"
-          className="mt-2 w-full h-44 sm:h-64 md:h-80 rounded-md object-cover"
-          alt={title}
-        />
+        <div className="relative mt-2 w-full h-44 sm:h-64 md:h-80 rounded-md overflow-hidden">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, 700px"
+            className="object-cover"
+          />
+        </div>
         {/* ==== Blog Content ==== */}
         <div
           className="mt-5 text-lg text-[#696969] leading-7"

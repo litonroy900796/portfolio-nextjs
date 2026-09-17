@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface BlogCardProps {
   title: string;
   image: string;
@@ -16,18 +18,19 @@ function BlogCard({
   onClick,
 }: BlogCardProps) {
   return (
-    <div className="w-full mb-8 cursor-pointer" onClick={onClick}>
-      <div className="relative w-full">
+    <article className="w-full mb-8 cursor-pointer" onClick={onClick}>
+      <div className="relative w-full h-44 md:h-40">
         {/* ==== Blog category ==== */}
-        <span className="absolute right-0 bg-gray-800 rounded-tr-md rounded-bl-md text-center text-xs font-medium py-1 px-2 text-gray-100">
+        <span className="absolute right-0 bg-gray-800 rounded-tr-md rounded-bl-md text-center text-xs font-medium py-1 px-2 text-gray-100 z-10">
           {category}
         </span>
         {/* ==== Blog Thumbnail ==== */}
-        <img
-          className="w-full h-44 md:h-40 rounded-md object-cover"
+        <Image
           src={image}
-          alt={image}
-          loading="lazy"
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="rounded-md object-cover"
         />
       </div>
       <div>
@@ -42,7 +45,7 @@ function BlogCard({
           <p className="font-light text-sm">@{author}</p>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
+import { RESUME } from "@/data";
 import {
   AUTHOR,
   SITE_DESCRIPTION,
@@ -73,24 +74,48 @@ export const viewport: Viewport = {
   themeColor: THEME_COLOR,
 };
 
-const personJsonLd = {
+const PERSON_ID = `${SITE_URL}/#person`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
+
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: AUTHOR.name,
-  url: SITE_URL,
-  image: AUTHOR.image,
-  jobTitle: AUTHOR.jobTitle,
-  email: `mailto:${AUTHOR.email}`,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: AUTHOR.addressLocality,
-    addressCountry: AUTHOR.addressCountry,
-  },
-  worksFor: {
-    "@type": "Organization",
-    name: AUTHOR.worksFor,
-  },
-  sameAs: AUTHOR.sameAs,
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": WEBSITE_ID,
+      url: SITE_URL,
+      name: `${SITE_NAME} Portfolio`,
+      description: SITE_DESCRIPTION,
+      inLanguage: SITE_LOCALE.replace("_", "-"),
+      publisher: { "@id": PERSON_ID },
+    },
+    {
+      "@type": "Person",
+      "@id": PERSON_ID,
+      name: AUTHOR.name,
+      url: SITE_URL,
+      image: AUTHOR.image,
+      jobTitle: AUTHOR.jobTitle,
+      description: SITE_DESCRIPTION,
+      email: `mailto:${AUTHOR.email}`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: AUTHOR.addressLocality,
+        addressCountry: AUTHOR.addressCountry,
+      },
+      worksFor: {
+        "@type": "Organization",
+        name: AUTHOR.worksFor,
+      },
+      alumniOf: RESUME.education.map((edu: { institution: string }) => ({
+        "@type": "EducationalOrganization",
+        name: edu.institution,
+      })),
+      knowsAbout: RESUME.skills.map((skill: { name: string }) => skill.name),
+      sameAs: AUTHOR.sameAs,
+      mainEntityOfPage: SITE_URL,
+    },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -102,7 +127,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
         />
         <Header />
         <main className="flex flex-1 flex-col">{children}</main>

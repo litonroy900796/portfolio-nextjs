@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { HEADER } from "../../../data";
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
@@ -37,7 +38,13 @@ function Header() {
         {/* ==== Logo ==== */}
         <a href="/">
           {logo.src ? (
-            <img src={logo.src} className="h-12" alt="logo" />
+            <Image
+              src={logo.src}
+              alt="logo"
+              width={160}
+              height={48}
+              className="h-12 w-auto"
+            />
           ) : (
             <h3 className="text-3xl font-Poppins font-medium text-white">
               {logo.alt}

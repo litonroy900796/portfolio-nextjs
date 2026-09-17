@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AiOutlineDownload } from "react-icons/ai";
 import { HiArrowRight } from "react-icons/hi2";
 import { Link as ScrollLink } from "react-scroll";
@@ -12,12 +13,13 @@ function Hero() {
     return (
         <section className="relative h-screen min-h-[640px] flex overflow-hidden" id="Hero">
             {/* ==== Hero Background Image ==== */}
-            <img
+            <Image
                 src={bgImage}
                 alt="Hero Background"
-                className="absolute inset-0 w-full h-full object-cover z-0"
-                loading="eager"
-                fetchPriority="high"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover z-0"
             />
             {/* ==== Gradient Overlays for contrast ==== */}
             <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/85 to-black/50" />

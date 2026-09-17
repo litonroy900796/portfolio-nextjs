@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Image from "next/image";
 import { ABOUT } from "../../../data";
 import { SectionTitle, Service } from "../../elements";
 
@@ -28,8 +29,16 @@ function About() {
             </div>
           </div>
           {/* ==== About Image ==== */}
-          <div className="hidden md:flex justify-center  items-end w-[30%]">
-            <img src={image} alt={name} className="h-[480px] rounded-xl" />
+          <div className="hidden md:flex justify-center items-end w-[30%]">
+            <div className="relative h-[480px] w-full">
+              <Image
+                src={image}
+                alt={name}
+                fill
+                sizes="30vw"
+                className="object-cover rounded-xl"
+              />
+            </div>
           </div>
         </div>
       </div>

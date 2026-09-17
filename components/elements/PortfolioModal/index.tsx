@@ -111,7 +111,7 @@ const PortfolioModal = ({ onClose, popupData }: PortfolioModalProps) => {
       </div>
       {/* ==== Image Modal === */}
       <PopUpWrapper open={open} onClose={onClosePopup}>
-        <img src={openImage ?? undefined} alt="project" className="w-full object-cover " />
+        <img src={openImage ?? undefined} alt="project" loading="lazy" className="w-full object-cover " />
       </PopUpWrapper>
     </>
   );
