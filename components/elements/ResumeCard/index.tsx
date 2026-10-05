@@ -3,7 +3,7 @@ import "./style.css"
 
 interface ResumeCardProps {
   title: string;
-  year: string;
+  year?: string;
   subtitle: string;
   description: string;
   Icon: IconType;
@@ -21,7 +21,7 @@ function ResumeCard({ title, year, subtitle, description, Icon, education, exper
                 <p className="text-gray-400">
                    {year && year} {year && experience && 'as'} {year && education && 'for'} <b className="text-gray-200">{subtitle}</b>
                 </p>
-                <h4 className="text-xl mb-2 font-semibold text-white">{title}</h4>
+                <h3 className="text-xl mb-2 font-semibold text-white">{title}</h3>
                 <p className="text-[#696969] text-base">
                     {description}
                 </p>

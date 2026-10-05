@@ -36,25 +36,29 @@ function Header() {
     >
       <div className="container flex flex-wrap items-center justify-between">
         {/* ==== Logo ==== */}
-        <a href="/">
+        <a href="/" aria-label="Liton Roy - Home">
           {logo.src ? (
             <Image
               src={logo.src}
-              alt="logo"
+              alt="Liton Roy logo"
               width={160}
               height={48}
               className="h-12 w-auto"
             />
           ) : (
-            <h3 className="text-3xl font-Poppins font-medium text-white">
+            <span className="text-3xl font-Poppins font-medium text-white">
               {logo.alt}
-            </h3>
+            </span>
           )}
         </a>
         {/* ==== Burger Menu ==== */}
         <span className="md:hidden">
-          <div
+          <button
+            type="button"
             className="cursor-pointer text-white"
+            aria-label={opened ? "Close menu" : "Open menu"}
+            aria-expanded={opened}
+            aria-controls="mobile-menu-4"
             onClick={() => setOpened((o) => !o)}
           >
             {!opened ? (
@@ -62,14 +66,14 @@ function Header() {
             ) : (
               <AiOutlineClose size={29} />
             )}
-          </div>
+          </button>
         </span>
         {/* ==== Menus ==== */}
         <div
           className={`${!opened && "hidden"} justify-between items-center w-full md:flex md:w-auto md:order-1`}
           id="mobile-menu-4"
         >
-          <nav className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium">
+          <nav aria-label="Main navigation" className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium">
             {menus.map((link, index) => {
               return (
                 <Link
@@ -77,6 +81,7 @@ function Header() {
                   key={index}
                   className={`NavBar__menu`}
                   to={link.to}
+                  href={`#${link.to}`}
                   spy={true}
                   smooth={true}
                   duration={500}

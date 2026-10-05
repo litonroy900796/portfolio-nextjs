@@ -23,7 +23,6 @@ function Resume() {
                 <ResumeCard
                   key={index}
                   title={item.institution}
-                  year={item.year}
                   subtitle={item.subject}
                   description={item.description}
                   Icon={MdCastForEducation}
@@ -49,7 +48,7 @@ function Resume() {
         </div>
         {/* ==== Skills ==== */}
         <div className="mt-14">
-          <div className="flex flex-wrap justify-between">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {skills.map((skill, index) => (
               <SkillProgress key={index} {...skill} />
             ))}

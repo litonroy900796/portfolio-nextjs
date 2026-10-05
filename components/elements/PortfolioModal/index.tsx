@@ -53,7 +53,7 @@ const PortfolioModal = ({ onClose, popupData }: PortfolioModalProps) => {
             <h2 className="text-lg md:text-3xl text-white font-Montserrat font-semibold">
               {title}
             </h2>
-            <p className="text-[#696969] text-[15px] font-[Poppins] mt-5">
+            <p className="text-[#696969] text-[15px] font-Poppins mt-5">
               {description}
             </p>
           </div>
@@ -111,7 +111,7 @@ const PortfolioModal = ({ onClose, popupData }: PortfolioModalProps) => {
       </div>
       {/* ==== Image Modal === */}
       <PopUpWrapper open={open} onClose={onClosePopup}>
-        <img src={openImage ?? undefined} alt="project" loading="lazy" className="w-full object-cover " />
+        <img src={openImage ?? undefined} alt={`${title} project screenshot`} loading="lazy" className="w-full object-cover " />
       </PopUpWrapper>
     </>
   );

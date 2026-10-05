@@ -4,7 +4,7 @@ function Footer() {
       <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
         © {new Date().getFullYear()}{" "}
         <span className="hover:underline cursor-pointer">
-          Liton Chandra Barman
+          Liton Roy
         </span>
         . All Rights Reserved.
       </span>

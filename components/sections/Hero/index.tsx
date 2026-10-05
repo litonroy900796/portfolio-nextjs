@@ -15,7 +15,7 @@ function Hero() {
             {/* ==== Hero Background Image ==== */}
             <Image
                 src={bgImage}
-                alt="Hero Background"
+                alt=""
                 fill
                 priority
                 sizes="100vw"
@@ -38,12 +38,12 @@ function Hero() {
                             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-color opacity-75" />
                             <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-color" />
                         </span>
-                        <h4 className="text-gray-100 text-sm sm:text-[15px] leading-none">
+                        <p className="text-gray-100 text-sm sm:text-[15px] leading-none">
                             {subtitle}
                             <span className="underline ml-2 decoration-primary-color tracking-wide text-white font-medium">
                                 {name}
                             </span>
-                        </h4>
+                        </p>
                     </span>
                     {/* ==== Type Writer ==== */}
                     <h1 className="animate-hero-fade-up [animation-delay:150ms] title mt-0 text-center font-bold w-full sm:w-[560px] sm:text-left mb-8 leading-[1.15]">

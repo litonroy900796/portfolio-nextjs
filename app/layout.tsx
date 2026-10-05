@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat, Poppins } from "next/font/google";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import { RESUME } from "@/data";
@@ -25,6 +25,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "800"],
+  display: "swap",
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -34,6 +48,9 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   keywords: SITE_KEYWORDS,
   authors: [{ name: AUTHOR.name, url: SITE_URL }],
+  applicationName: `${SITE_NAME} Portfolio`,
+  category: "technology",
+  formatDetection: { telephone: false, email: false, address: false },
   creator: AUTHOR.name,
   publisher: AUTHOR.name,
   alternates: {
@@ -97,7 +114,7 @@ const jsonLd = {
       image: AUTHOR.image,
       jobTitle: AUTHOR.jobTitle,
       description: SITE_DESCRIPTION,
-      email: `mailto:${AUTHOR.email}`,
+      email: AUTHOR.email,
       address: {
         "@type": "PostalAddress",
         addressLocality: AUTHOR.addressLocality,
@@ -111,7 +128,7 @@ const jsonLd = {
         "@type": "EducationalOrganization",
         name: edu.institution,
       })),
-      knowsAbout: RESUME.skills.map((skill: { name: string }) => skill.name),
+      knowsAbout: RESUME.skills.flatMap((skill: { items: string[] }) => skill.items),
       sameAs: AUTHOR.sameAs,
       mainEntityOfPage: SITE_URL,
     },
@@ -122,7 +139,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <script

@@ -10,7 +10,7 @@ function HeroBottom() {
             {COUNTERS.map((item, index) => (
               <div className="flex items-center gap-[20px]" key={index}>
                 <div>
-                  <h3 className="text-gray-50 font-medium text-[55px]">{item.count}</h3>
+                  <p className="text-gray-50 font-medium text-[55px]">{item.count}</p>
                 </div>
                 <div>
                   <p

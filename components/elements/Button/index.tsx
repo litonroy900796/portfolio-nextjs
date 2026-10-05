@@ -6,10 +6,13 @@ interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   type?: string;
 }
 
-function Button({ children, className = "", ...rest }: ButtonProps) {
+function Button({ children, className = "", target, rel, ...rest }: ButtonProps) {
   return (
     <a
-      className={` 
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : rel}
+      className={`
+        flex items-center gap-2
         px-6 py-2 text-gray-300 font-medium
         rounded-[5px] cursor-pointer bg-transparent
         border border-gray-300 hover:text-white
@@ -19,7 +22,7 @@ function Button({ children, className = "", ...rest }: ButtonProps) {
       `}
       {...rest}
     >
-      <button className="flex items-center gap-2 w-full">{children}</button>
+      {children}
     </a>
   )
 }

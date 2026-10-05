@@ -11,7 +11,7 @@ function ProjectDetails({ icon, text, link }: ProjectDetailsProps) {
         <a
             href={link}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="flex items-center gap-3 cursor-pointer"
         >
             <span className="text-primary-color ">{icon}</span>
